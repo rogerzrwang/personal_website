@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Roger Wang</title>
+        <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+    
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        /* About Section styles */
+        #about {
+            background-color: #fff;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        #about img {
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+        }
+
+        /* Resume Section styles */
+        #skill {
+            padding: 1rem 10rem;
+            background-color: #fff;
+        }
+
+        #skill h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        #skill h3 {
+            font-family: 'Helvetica', sans-serif;
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #3b3b3b;
+        }
+
+        /* Portfolio Section styles */
+        #publication {
+            padding: 1rem 10rem;
+            background-color: #fff;
+        }
+
+        #publication h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        #publication h3 {
+            font-family: 'Helvetica', sans-serif;
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #0658ab;
+        }
+
+        /* Contact Section styles */
+        #contact {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        #contact p {
+            font-size: 1.1rem;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Work Experience styles */
+        #edu {
+            padding: 1rem 10rem;
+            background-color: #fff;
+        }
+
+        #edu h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        #edu h3 {
+            font-family: 'Helvetica', sans-serif;
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #0658ab;
+        }
+
+        #edu h4 {
+            font-family: 'Helvetica', sans-serif;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #0658ab;
+        }
+
+        #edu h5 {
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 5 10px;
+        }
+
+        #edu p {
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 20px;
+        }
+
+        /* Add this new style for job time */
+        .edu-time {
+            font-size: 0.9rem; /* Adjust the font size as needed */
+            color: #888; /* Adjust the color as needed */
+        }
+
+        /* Work Experience styles */
+        #work {
+            padding: 1rem 10rem;
+            background-color: #fff;
+        }
+
+        #work h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        #work h3 {
+            font-family: 'Helvetica', sans-serif;
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #0658ab;
+        }
+
+        #work h4 {
+            font-family: 'Helvetica', sans-serif;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #0658ab;
+        }
+
+        #work h5 {
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 5 10px;
+        }
+
+        #work p {
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 20px;
+        }
+
+        /* Add this new style for job time */
+        .job-time {
+            font-size: 0.9rem; /* Adjust the font size as needed */
+            color: #888; /* Adjust the color as needed */
+        }
+        </style>
+    </head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skill">Skill</a></li>
+                <li><a href="#work">Experience</a></li>
+                <li><a href="#edu">Education</a></li>
+                <li><a href="#publication">Publication</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" style="position: relative;">
+        <img src="static/ProfilePhoto.JPG" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+        <div style="position: relative; padding: 2rem; text-align: center;">
+            <h2>About Me</h2>
+            <p style="font-weight: bold;"> Senior Data Scientist at AXS | <a href="https://www.linkedin.com/in/roger-zirui-wang">LinkedIn</a></p>
+            <p>
+                I believe being genuine and nurturing, along with a professional driven attitude, is an essential combination for people in the field of data science.
+            </p>
+        </div>
+    </section>
+
+    <section id="skill">
+        <div>
+            <h2>Skills</h2>
+            <P><strong><center>Data Science | Machine Learning | Deep Learning | Large Language Model | Data Visualization | A/B Test | Mathematics</center></strong></p>
+            <P><center>Python | SQL | Looker | Databricks | Snowflake | Redshift | AWS | Git</center></p>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="work">
+        <div>
+            <h2>Work Experience</h2>
+            <div class="job">
+                <h3><a href="https://www.axs.com">Senior Data Scientist at AXS</a>
+                    <span class="job-time"> | Jan 2022 - Present, Los Angeles, CA</span>
+                </h3>
+                <ul>
+                    <li>Owned and led the Dynamic Pricing project from scratch at AXS, utilized by both music and sports clients
+                        <ul>
+                            <li>Built a stack model (supervised ML and mathematical projection) to predict different events' demands</li>
+                            <li>Developed a price optimization model to find the best price for each seat for maximum potential revenues</li>
+                            <li>Made approximately 750K price recommendations for ~250 events in the US daily, generating 3M additional revenues in 2023 so far</li>
+                        </ul>
+                    </li>
+                    <li>Created multiple AI-based chatbots for 1) company internal information search, 2) client service team, and 3) call center
+                        <ul>
+                            <li>Improved work efficiency for cross-team projects and helped clients and customer service team find better solutions</li>
+                        </ul>
+                    </li>
+                    <li>Refined the Broker Detection Model (classification) and helped the team create event recommendations for email marketing</li>
+                    <li>Assisted in building data pipelines between AXS database and third-party vendors for daily automated data ingestion</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3><a href="https://www.avianaglobal.com">Data Scientist at Aviana Global Technologies Inc</a>
+                    <span class="job-time"> | Feb 2020 - Jan 2022, Los Angeles, CA</span>
+                </h3>
+                <ul>
+                    <li>Participated in the design, development, implementation, and ongoing maintenance of NEMESIS, a new generation DS tool</li>
+                    <li>Worked in support of the consulting team building ML solutions such as churn prediction and segmentation analysis</li>
+                    <li>Built connections between Nemesis engine and different SQL servers such as IBM DB2 and Microsoft SQL server, which
+                        helped the company secure a new contract with a client</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3><a href="https://www.bsc.edu">Research Fellow at Birmingham-Southern College</a>
+                    <span class="job-time"> | Jul 2018 - May 2019, Birmingham, AL</span>
+                </h3>
+                <ul>
+                    <li>Built a tactile input modality called CodeBox64 utilizing Python, raspberry pi, and 3D-print with Dr. Amber Wagner</li>
+                    <li>Offered visually impaired students in K-12 an access to interact more easily with Scratch, a block programming language</li>
+                    <li>Won 2nd Place at 2019 ACM SIGCSE Student Research Competition Undergraduate Category with two publications</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3>
+                    Data Analyst Intern at Chinese Petroleum Engineering & Construction Southwest Co.
+                    <span class="job-time"> | Jul 2018 - Aug 2018, Chengdu, China</span>
+                </h3>
+                <ul>
+                    <li>Cleaned data using Python and assisted the Network Information Department in establishing a Directory Search system</li>
+                    <li>Created a database in MS SQL Server with other interns containing all employee info, which was used in the search system</li>
+                    <li>Managed and maintained employee’s data using SQL in MS Management Studio such as altering, adding and deleting</li>
+                </ul>
+            </div>
+            <!-- Add more job entries as needed -->
+        </div>
+    </section>
+
+    <section id="edu">
+        <div>
+            <h2>Education</h2>
+            <div class="education">
+                <h3><a href="https://www.usc.edu">University of Southern California</a>
+                    <span class="job-time"> | Aug 2019 - May 2021, Los Angeles, CA</span>
+                </h3>
+                <ul>
+                    <li><strong>Master of Science in Analytics</strong></li>
+                    <li>Dean's List</li>
+                </ul>
+            </div>
+            <div class="education">
+                <h3><a href="https://www.bsc.edu">Birmingham-Southern College</a>
+                    <span class="job-time"> | Aug 2015 - May 2019, Birmingham, AL</span>
+                </h3>
+                <ul>
+                    <li><strong>Bachelor of Science in Mathematics</strong></li>
+                    <li>Summa Cum Laude (Valedictorian)</li>
+                    <li>Robert Hewlin Jackson Meritorious Scholarship Award</li>
+                    <li>Mathematics Faculty Outstanding Senior Award</li>
+                    <li>Davis Scholarship in Mathematics</li>
+                    <li>Dean's List</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publication Section -->
+    <section id="publication">
+        <div>
+            <h2>Publication</h2>
+            <div class="publication">
+                <h3><a href="https://dl.acm.org/doi/10.1145/3299815.3314464">Evaluating a Tactile Approach to Programming Scratch</a>
+                    <span class="job-time"> | ACM New York, NY, USA · Apr 18, 2019</span>
+                </h3>
+                <ul>
+                    <li>Computer Science in K-12 is continuing to become more prevalent. Because learning syntax and debugging can be burdensome, many teachers in K-12 use block languages to teach their students. Block languages, such as Scratch, allow students to focus on simple programming concepts and logic, and therefore, make computer programming easier and more approachable to students. However, block languages are not accessible to students with visual impairments because of block-environments' high dependence on visual aspects. This paper describes an innovative peripheral device that can help students with visual impairments access Scratch by simply remembering six buttons and guided by auditory cues generated by the computer. In order to test CodeBox64's usability and efficiency, a simple user study was conducted. Based on the data collected from the user study, CodeBox64 functioned properly and efficiently.</li>
+                </ul>
+            </div>
+            <div class="publication">
+                <h3><a href="https://dl.acm.org/doi/10.1145/3287324.3293707">Using Touch and Sound to Program Scratch</a>
+                    <span class="job-time"> | ACM New York, NY, USA · Feb 20, 2019</span>
+                </h3>
+                <ul>
+                    <li>This research invented a tactile input modality which can help visually impaired students access Scratch, a block programming language, more easily using Raspberry Pi and Python. In order to test the usability and efficiency of CodeBox64, an experiment was designed and conducted. The results showed that CodeBox64 functioned properly and was able to provide an access to Scratch for students with visual impairments.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div>
+            <h2>Contact</h2>
+            <p><center><a href="https://www.linkedin.com/in/roger-zirui-wang">LinkedIn</a> | <a href="https://dl.acm.org/profile/99659351519">ACM Profile</a> | <a href="https://github.com/rogerzrwang">Github | <a href="https://www.instagram.com/rogerzrwang/">Instagram</a></a></center></p> 
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 Roger Wang. All rights reserved.</p>
+    </footer>
+</body>
+</html>
