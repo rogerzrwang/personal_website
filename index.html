@@ -26,6 +26,7 @@
             color: #fff;
             text-align: center;
             padding: 0.5rem;
+            z-index: 1000;
         }
 
         nav ul {
@@ -45,12 +46,24 @@
             font-size: 1rem;
         }
 
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #83bbe6;
+        }
+
         /* About Section styles */
         #about {
             background-color: #fff;
             padding: 2rem;
             text-align: center;
             margin-bottom: 0;
+            z-index: 2000;
         }
 
         #about img {
@@ -123,7 +136,7 @@
             font-size: 0.9rem;
         }
 
-        /* Work Experience styles */
+        /* Education section styles */
         #edu {
             padding: 1rem 10rem;
             background-color: #fff;
@@ -217,6 +230,53 @@
         .job-time {
             font-size: 0.9rem; /* Adjust the font size as needed */
             color: #888; /* Adjust the color as needed */
+            position: relative; /* Add this line to make content stack above the background */
+            margin-bottom: 2rem; /* Add spacing between job entries */
+        }
+
+        /* Style for the line between sections */
+        .section-divider {
+            border-top: 1px solid #ccc;
+            margin: 0.5rem 0;
+        }
+
+        /* Back to Top button styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: #444;
+        }
+
+        .back-to-top a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .contact-icons a {
+            color: #333;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .contact-icons a:hover {
+            color: #0658ab;
         }
         </style>
     </head>
@@ -236,11 +296,11 @@
     </header>
 
     <!-- About Section -->
-    <section id="about" style="position: relative;">
+    <section id="about" style="position: relative;" class="contact-icons">
         <img src="static/ProfilePhoto.JPG" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
         <div style="position: relative; padding: 2rem; text-align: center;">
             <h2>About Me</h2>
-            <p style="font-weight: bold;"> Senior Data Scientist at AXS | <a href="https://www.linkedin.com/in/roger-zirui-wang">LinkedIn</a></p>
+            <p style="font-weight: bold; font-size: 18px;"> Senior Data Scientist at AXS<a href="https://www.linkedin.com/in/roger-zirui-wang" style="font-size: 18px;"><i class="fab fa-linkedin"></i></a></p>
             <p>
                 I believe being genuine and nurturing, along with a professional driven attitude, is an essential combination for people in the field of data science.
             </p>
@@ -249,16 +309,17 @@
 
     <section id="skill">
         <div>
-            <h2>Skills</h2>
+            <h2><i class="fas fa-chart-line"></i> Skills</h2>
             <P><strong><center>Data Science | Machine Learning | Deep Learning | Large Language Model | Data Visualization | A/B Test | Mathematics</center></strong></p>
             <P><center>Python | SQL | Looker | Databricks | Snowflake | Redshift | AWS | Git</center></p>
         </div>
     </section>
 
     <!-- Resume Section -->
-    <section id="work">
-        <div>
-            <h2>Work Experience</h2>
+    <section id="work" style="position: relative;">
+        <img src="static/WorkBackground.JPG" style="position: absolute; top: 20; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15;">
+        <div style="position: relative; z-index: 1;">
+            <h2><i class="fas fa-briefcase"></i> Experience</h2>
             <div class="job">
                 <h3><a href="https://www.axs.com">Senior Data Scientist at AXS</a>
                     <span class="job-time"> | Jan 2022 - Present, Los Angeles, CA</span>
@@ -318,36 +379,35 @@
 
     <section id="edu">
         <div>
-            <h2>Education</h2>
-            <div class="education">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="education" style="position: relative; text-align: center;">
                 <h3><a href="https://www.usc.edu">University of Southern California</a>
                     <span class="job-time"> | Aug 2019 - May 2021, Los Angeles, CA</span>
                 </h3>
-                <ul>
-                    <li><strong>Master of Science in Analytics</strong></li>
-                    <li>Dean's List</li>
-                </ul>
+                <strong>Master of Science in Analytics</strong>
+                <i><p>Dean's List</p></i>
+                <img src="static/USC_logo.png" style="width: 20%; height: 20%; margin-top: 0px;">
             </div>
-            <div class="education">
+            <div class="education" style="position: relative; text-align: center;">
                 <h3><a href="https://www.bsc.edu">Birmingham-Southern College</a>
                     <span class="job-time"> | Aug 2015 - May 2019, Birmingham, AL</span>
                 </h3>
-                <ul>
-                    <li><strong>Bachelor of Science in Mathematics</strong></li>
-                    <li>Summa Cum Laude (Valedictorian)</li>
-                    <li>Robert Hewlin Jackson Meritorious Scholarship Award</li>
-                    <li>Mathematics Faculty Outstanding Senior Award</li>
-                    <li>Davis Scholarship in Mathematics</li>
-                    <li>Dean's List</li>
-                </ul>
+                <strong>Bachelor of Science in Mathematics</strong>
+                    <i><p>Summa Cum Laude (Valedictorian)</p>
+                    <p>Robert Hewlin Jackson Meritorious Scholarship Award</p>
+                    <p>Mathematics Faculty Outstanding Senior Award</p>
+                    <p>Davis Scholarship in Mathematics</p>
+                    <p>Dean's List</p></i>
+                    <img src="static/BSC_logo.png" style="width: 20%; height: 20%; margin-top: 30px;">
             </div>
         </div>
     </section>
 
     <!-- Publication Section -->
+    <div class="section-divider"></div>
     <section id="publication">
         <div>
-            <h2>Publication</h2>
+            <h2><i class="fas fa-book"></i> Publication</h2>
             <div class="publication">
                 <h3><a href="https://dl.acm.org/doi/10.1145/3299815.3314464">Evaluating a Tactile Approach to Programming Scratch</a>
                     <span class="job-time"> | ACM New York, NY, USA · Apr 18, 2019</span>
@@ -369,11 +429,50 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <div>
-            <h2>Contact</h2>
-            <p><center><a href="https://www.linkedin.com/in/roger-zirui-wang">LinkedIn</a> | <a href="https://dl.acm.org/profile/99659351519">ACM Profile</a> | <a href="https://github.com/rogerzrwang">Github</a> | <a href="https://www.instagram.com/rogerzrwang/">Instagram</a></center></p> 
+        <div class="contact-icons">
+            <h2><i class="fas fa-envelope"></i> Contact</h2>
+            <p>
+                <center>
+                    <a href="https://www.linkedin.com/in/roger-zirui-wang"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://dl.acm.org/profile/99659351519"><i class="fas fa-user"></i></a>
+                    <a href="https://github.com/rogerzrwang"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/rogerzrwang/"><i class="fab fa-instagram"></i></a>
+                </center>
+            </p>
         </div>
     </section>
+
+    <!-- Back-to-Top Button -->
+    <div id="back-to-top" class="back-to-top">
+        <a href="#header"><i class="fas fa-arrow-up"></i></a>
+    </div>
+    <!-- Add the Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- JavaScript code for Back to Top button behavior -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const backToTopButton = document.getElementById("back-to-top");
+            
+            // Show/hide the button based on the scroll position
+            window.addEventListener("scroll", function () {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.transform = "scale(1)";
+                } else {
+                    backToTopButton.style.transform = "scale(0)";
+                }
+            });
+            
+            // Scroll to the top when the button is clicked
+            backToTopButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
 
     <!-- Footer Section -->
     <footer>
