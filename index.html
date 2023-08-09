@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Roger Wang</title>
-        <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roger Wang</title>
+    <style>
         /* General styles */
         body {
             font-family: Arial, sans-serif;
@@ -15,7 +13,7 @@
             padding: 0;
             background-color: #f8f8f8;
         }
-    
+
         /* Header styles */
         header {
             position: fixed;
@@ -29,6 +27,7 @@
             z-index: 1000;
         }
 
+        /* Navigation styles */
         nav ul {
             list-style: none;
             margin: 0;
@@ -64,6 +63,7 @@
             text-align: center;
             margin-bottom: 0;
             z-index: 2000;
+            position: relative;
         }
 
         #about img {
@@ -278,6 +278,88 @@
         .contact-icons a:hover {
             color: #0658ab;
         }
+
+        /* Media Queries for Responsive Design */
+        @media screen and (max-width: 768px) 
+        {
+            /* Adjustments for smaller screens */
+            header {
+            padding: 0.5rem;
+            }
+
+            nav li {
+                margin: 0 5px;
+            }
+
+            /* About Section styles */
+            #about {
+                padding: 1rem;
+                text-align: center;
+            }
+
+            /* Resume Section styles */
+            #work {
+                padding: 1rem;
+                font-size: 12px;
+            }
+
+            #work h3{
+                padding: 1rem;
+                font-size: 14px;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+
+            #skill {
+                padding: 1rem;
+                font-size: 12px;
+            }
+
+            /* Education section styles */
+            #edu {
+                padding: 0.1rem;
+                font-size: 14px;
+            }
+
+            #edu h2{
+                margin-top: 55px;
+            }
+
+            #edu h3{
+                margin-top: 10px;
+                font-size: 14px;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+
+            #edu p{
+                padding: 0.1rem;
+                font-size: 12px;
+            }
+
+            /* Publication section styles */
+            #publication {
+                padding: 1rem;
+                font-size: 12px;
+            }
+
+            #publication h3{
+                padding: 0rem;
+                font-size: 14px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            /* Contact Section styles */
+            #contact {
+                padding: 0.1rem;
+            }
+
+            /* Footer styles */
+            footer {
+                font-size: 0.8rem;
+            }
+        }
         </style>
     </head>
 <body>
@@ -321,7 +403,7 @@
         <div style="position: relative; z-index: 1;">
             <h2><i class="fas fa-briefcase"></i> Experience</h2>
             <div class="job">
-                <h3>Senior Data Scientist at <a href="https://www.axs.com">AXS</a>
+                <h3><a href="https://www.axs.com">Senior Data Scientist at AXS</a>
                     <span class="job-time"> | Jan 2022 - Present, Los Angeles, CA</span>
                 </h3>
                 <ul>
@@ -342,7 +424,7 @@
                 </ul>
             </div>
             <div class="job">
-                <h3>Data Scientist at <a href="https://www.avianaglobal.com">Aviana Global Technologies Inc</a>
+                <h3><a href="https://www.avianaglobal.com">Data Scientist at Aviana Global Technologies Inc</a>
                     <span class="job-time"> | Feb 2020 - Jan 2022, Los Angeles, CA</span>
                 </h3>
                 <ul>
@@ -353,7 +435,7 @@
                 </ul>
             </div>
             <div class="job">
-                <h3>Research Fellow at <a href="https://www.bsc.edu">Birmingham-Southern College</a>
+                <h3><a href="https://www.bsc.edu">Research Fellow at Birmingham-Southern College</a>
                     <span class="job-time"> | Jul 2018 - May 2019, Birmingham, AL</span>
                 </h3>
                 <ul>
