@@ -1,5 +1,7 @@
 # Personal Portfolio Website
 
+:rocket: Live demo: https://rogerzrwang.github.io/personal_website/
+
 ![Screenshot](demo.png)
 
 This repository contains a personal portfolio website template that you can use to showcase your skills, experience, and projects. The template is built using HTML and CSS and is designed to be easily customizable to fit your personal branding and content.
