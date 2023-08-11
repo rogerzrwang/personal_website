@@ -1,369 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roger Wang</title>
-    <style>
-        /* General styles */
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Roger Wang</title>
+        <style>
+            /* General styles */
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 0;
+                background-color: #111;
+                color: #fff;
+            }
+    
+            /* Header styles */
+            header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: #000000;
+                color: #fff;
+                text-align: center;
+                padding: 0.5rem;
+                z-index: 1000;
+            }
+    
+            /* Navigation styles */
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+    
+            nav li {
+                display: inline-block;
+                margin: 0 10px;
+            }
+    
+            nav li a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 1rem;
+            }
+    
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 1rem;
+                transition: color 0.3s;
+            }
+    
+            nav ul li a:hover {
+                color: #83bbe6;
+            }
+    
+            /* About Section styles */
+            #about {
+                background-color: #222;
+                padding: 2rem;
+                text-align: center;
+                margin-bottom: 0;
+                z-index: 2000;
+                position: relative;
+            }
 
-        /* Header styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 0.5rem;
-            z-index: 1000;
-        }
-
-        /* Navigation styles */
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav li {
-            display: inline-block;
-            margin: 0 10px;
-        }
-
-        nav li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #83bbe6;
-        }
-
-        /* About Section styles */
-        #about {
-            background-color: #fff;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 0;
-            z-index: 2000;
-            position: relative;
-        }
-
-        #about img {
+            #about img {
             display: block;
             margin: 0 auto;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-        }
-
-        /* Resume Section styles */
-        #skill {
-            padding: 1rem 10rem;
-            background-color: #fff;
-        }
-
-        #skill h2 {
-            text-align: center;
-            font-size: 1.6rem;
-            margin-bottom: 2rem;
-        }
-
-        #skill h3 {
-            font-family: 'Helvetica', sans-serif;
-            font-size: 1.2rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: #3b3b3b;
-        }
-
-        /* Portfolio Section styles */
-        #publication {
-            padding: 1rem 10rem;
-            background-color: #fff;
-        }
-
-        #publication h2 {
-            text-align: center;
-            font-size: 1.6rem;
-            margin-bottom: 2rem;
-        }
-
-        #publication h3 {
-            font-family: 'Helvetica', sans-serif;
-            font-size: 1.2rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: #0658ab;
-        }
-
-        /* Contact Section styles */
-        #contact {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        #contact h2 {
-            font-size: 1.6rem;
-            margin-bottom: 2rem;
-        }
-
-        #contact p {
-            font-size: 1.1rem;
-        }
-
-        /* Footer styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-        }
-
-        /* Education section styles */
-        #edu {
-            padding: 1rem 10rem;
-            background-color: #fff;
-        }
-
-        #edu h2 {
-            text-align: center;
-            font-size: 1.6rem;
-            margin-bottom: 2rem;
-        }
-
-        #edu h3 {
-            font-family: 'Helvetica', sans-serif;
-            font-size: 1.2rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: #0658ab;
-        }
-
-        #edu h4 {
-            font-family: 'Helvetica', sans-serif;
-            font-size: 1rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: #0658ab;
-        }
-
-        #edu h5 {
-            font-family: 'Georgia', serif;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin: 5 10px;
-        }
-
-        #edu p {
-            font-family: 'Georgia', serif;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin: 0 20px;
-        }
-
-        /* Add this new style for job time */
-        .edu-time {
-            font-size: 0.9rem; /* Adjust the font size as needed */
-            color: #888; /* Adjust the color as needed */
-        }
-
-        /* Work Experience styles */
-        #work {
-            padding: 1rem 10rem;
-            background-color: #fff;
-        }
-
-        #work h2 {
-            text-align: center;
-            font-size: 1.6rem;
-            margin-bottom: 2rem;
-        }
-
-        #work h3 {
-            font-family: 'Helvetica', sans-serif;
-            font-size: 1.2rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: #0658ab;
-        }
-
-        #work h4 {
-            font-family: 'Helvetica', sans-serif;
-            font-size: 1rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: #0658ab;
-        }
-
-        #work h5 {
-            font-family: 'Georgia', serif;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin: 5 10px;
-        }
-
-        #work p {
-            font-family: 'Georgia', serif;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin: 0 20px;
-        }
-
-        /* Add this new style for job time */
-        .job-time {
-            font-size: 0.9rem; /* Adjust the font size as needed */
-            color: #888; /* Adjust the color as needed */
-            position: relative; /* Add this line to make content stack above the background */
-            margin-bottom: 2rem; /* Add spacing between job entries */
-        }
-
-        /* Style for the line between sections */
-        .section-divider {
-            border-top: 1px solid #ccc;
-            margin: 0.5rem 0;
-        }
-
-        /* Back to Top button styles */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #333;
-            color: #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .back-to-top:hover {
-            background-color: #444;
-        }
-
-        .back-to-top a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px;
-        }
-
-        .contact-icons a {
-            color: #333;
-            font-size: 24px;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .contact-icons a:hover {
-            color: #0658ab;
-        }
-
-        /* Media Queries for Responsive Design */
-        @media screen and (max-width: 768px) 
-        {
-            /* Adjustments for smaller screens */
-            header {
-                padding: 0.2rem;
             }
 
-            nav li {
-                margin: 0 3px;
-            }
-
-            nav ul li a {
-                font-size: 0.8rem; /* Adjust the font size as needed */
-            }
-
-            /* About Section styles */
-            #about {
-                padding: 1rem;
-                text-align: center;
-            }
-
-            /* Resume Section styles */
-            #work {
-                padding: 1rem;
-                font-size: 12px;
-            }
-
-            #work h3{
-                padding: 1rem;
-                font-size: 14px;
-                margin-left: 5px;
-                margin-right: 5px;
-            }
-
-            #skill {
-                padding: 1rem;
-                font-size: 12px;
-            }
-
-            /* Education section styles */
-            #edu {
-                padding: 0.1rem;
-                font-size: 14px;
-            }
-
-            #edu h2{
-                margin-top: 55px;
-            }
-
-            #edu h3{
-                margin-top: 10px;
-                font-size: 14px;
-                margin-left: 50px;
-                margin-right: 50px;
-            }
-
-            #edu p{
-                padding: 0.1rem;
-                font-size: 12px;
-            }
-
-            /* Publication section styles */
+            /* Portfolio Section styles */
             #publication {
-                padding: 1rem;
-                font-size: 12px;
+                padding: 1rem 10rem;
+                background-color: #fff;
             }
 
-            #publication h3{
-                padding: 0rem;
-                font-size: 14px;
-                margin-left: 20px;
-                margin-right: 20px;
+            #publication h2 {
+                text-align: center;
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+            }
+
+            #publication h3 {
+                font-family: 'Helvetica', sans-serif;
+                font-size: 1.2rem;
+                margin-top: 0;
+                margin-bottom: 1rem;
+                color: #0658ab;
             }
 
             /* Contact Section styles */
             #contact {
-                padding: 0.1rem;
+                padding: 2rem;
+                text-align: center;
+            }
+
+            #contact h2 {
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+            }
+
+            #contact p {
+                font-size: 1.1rem;
             }
 
             /* Footer styles */
             footer {
-                font-size: 0.8rem;
+                background-color: #000000;
+                color: #fff;
+                text-align: center;
+                padding: 1rem;
+                font-size: 0.9rem;
             }
-        }
+
+            /* Education section styles */
+            #edu {
+                padding: 1rem 10rem;
+                background-color: #fff;
+            }
+
+            #edu h2 {
+                text-align: center;
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+            }
+
+            #edu h3 {
+                font-family: 'Helvetica', sans-serif;
+                font-size: 1.2rem;
+                margin-top: 0;
+                margin-bottom: 1rem;
+                color: #b3d8fd;
+            }
+
+            #edu h4 {
+                font-family: 'Helvetica', sans-serif;
+                font-size: 1rem;
+                margin-top: 0;
+                margin-bottom: 1rem;
+                color: #b3d8fd;
+            }
+
+            #edu h5 {
+                font-family: 'Georgia', serif;
+                font-size: 1rem;
+                line-height: 1.5;
+                margin: 5 10px;
+            }
+
+            #edu p {
+                font-family: 'Georgia', serif;
+                font-size: 1rem;
+                line-height: 1.5;
+                margin: 0 20px;
+            }
+
+            /* Add this new style for job time */
+            .edu-time {
+                font-size: 0.9rem; /* Adjust the font size as needed */
+                color: #888; /* Adjust the color as needed */
+            }
+
+            /* Work Experience styles */
+            #work {
+                padding: 1rem 10rem;
+                background-color: #fff;
+            }
+
+            #work h2 {
+                text-align: center;
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+            }
+
+            #work h3 {
+                font-family: 'Helvetica', sans-serif;
+                font-size: 1.2rem;
+                margin-top: 0;
+                margin-bottom: 1rem;
+                color: #b3d8fd;
+            }
+
+            #work h4 {
+                font-family: 'Helvetica', sans-serif;
+                font-size: 1rem;
+                margin-top: 0;
+                margin-bottom: 1rem;
+                color: #b3d8fd;
+            }
+
+            #work h5 {
+                font-family: 'Georgia', serif;
+                font-size: 1rem;
+                line-height: 1.5;
+                margin: 5 10px;
+            }
+
+            #work p {
+                font-family: 'Georgia', serif;
+                font-size: 1rem;
+                line-height: 1.5;
+                margin: 0 20px;
+            }
+
+            /* Add this new style for job time */
+            .job-time {
+                font-size: 0.9rem; /* Adjust the font size as needed */
+                color: #888; /* Adjust the color as needed */
+                position: relative; /* Add this line to make content stack above the background */
+                margin-bottom: 2rem; /* Add spacing between job entries */
+            }
+
+            /* Style for the line between sections */
+            .section-divider {
+                border-top: 1px solid #000000;
+                margin: 0.5rem 0;
+            }
+
+            /* Back to Top button styles */
+            .back-to-top {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #333;
+                color: #fff;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+            .back-to-top:hover {
+                background-color: #444;
+            }
+
+            .back-to-top a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 20px;
+            }
+
+            .contact-icons a {
+                color: #fff;
+                font-size: 24px;
+                margin: 0 10px;
+                transition: color 0.3s;
+            }
+
+            .contact-icons a:hover {
+                color: #b3d8fd;
+            }
+
+            /* Media Queries for Responsive Design */
+            @media screen and (max-width: 768px) 
+            {
+                /* Adjustments for smaller screens */
+                header {
+                    padding: 0.2rem;
+                }
+
+                nav li {
+                    margin: 0 3px;
+                }
+
+                nav ul li a {
+                    font-size: 0.8rem; /* Adjust the font size as needed */
+                }
+
+                /* About Section styles */
+                #about {
+                    padding: 1rem;
+                    text-align: center;
+                }
+
+                /* Resume Section styles */
+                #work {
+                    padding: 1rem;
+                    font-size: 12px;
+                }
+
+                #work h3{
+                    padding: 1rem;
+                    font-size: 14px;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                }
+
+                #skill {
+                    padding: 1rem;
+                    font-size: 12px;
+                }
+
+                /* Education section styles */
+                #edu {
+                    padding: 0.1rem;
+                    font-size: 14px;
+                }
+
+                #edu h2{
+                    margin-top: 55px;
+                }
+
+                #edu h3{
+                    margin-top: 10px;
+                    font-size: 14px;
+                    margin-left: 50px;
+                    margin-right: 50px;
+                }
+
+                #edu p{
+                    padding: 0.1rem;
+                    font-size: 12px;
+                }
+
+                /* Publication section styles */
+                #publication {
+                    padding: 1rem;
+                    font-size: 12px;
+                }
+
+                #publication h3{
+                    padding: 0rem;
+                    font-size: 14px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                }
+
+                /* Contact Section styles */
+                #contact {
+                    padding: 0.1rem;
+                }
+
+                /* Footer styles */
+                footer {
+                    font-size: 0.8rem;
+                }
+            }
+
+            /* Change link color to a light color */
+            a {
+                color: #83bbe6; /* Change this to your desired light color */
+            }
         </style>
     </head>
 <body>
@@ -372,7 +358,6 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#skill">Skill</a></li>
                 <li><a href="#work">Experience</a></li>
                 <li><a href="#edu">Education</a></li>
                 <li><a href="#publication">Publication</a></li>
@@ -387,24 +372,18 @@
         <div style="position: relative; padding: 2rem; text-align: center;">
             <h2>About Me</h2>
             <p style="font-weight: bold; font-size: 18px;"> Senior Data Scientist at AXS</p>
+            <a href="https://www.linkedin.com/in/roger-zirui-wang"><i class="fab fa-linkedin"></i></a><a href="https://rogerzrwang.github.io/photography_portofolio/"><i class="fas fa-camera"></i></a>
             <p>
                 I believe being genuine and nurturing, along with a professional driven attitude, is an essential combination for people in the field of data science.
             </p>
-            <a href="https://www.linkedin.com/in/roger-zirui-wang"><i class="fab fa-linkedin"></i></a><a href="https://rogerzrwang.github.io/photography_portofolio/"><i class="fas fa-camera"></i></a>
-        </div>
-    </section>
-
-    <section id="skill">
-        <div>
-            <h2><i class="fas fa-chart-line"></i> Skills</h2>
+            <hr>
             <P><strong><center>Data Science | Machine Learning | Deep Learning | Large Language Model | Data Visualization | A/B Test | Mathematics</center></strong></p>
             <P><center>Python | SQL | Looker | Databricks | Snowflake | Redshift | AWS | Git</center></p>
         </div>
     </section>
 
     <!-- Resume Section -->
-    <section id="work" style="position: relative;">
-        <img src="static/WorkBackground.JPG" style="position: absolute; top: 20; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15;">
+    <section id="work" style="background-color: #000000; position: relative;">
         <div style="position: relative; z-index: 1;">
             <h2><i class="fas fa-briefcase"></i> Experience</h2>
             <div class="job">
@@ -464,7 +443,7 @@
         </div>
     </section>
 
-    <section id="edu">
+    <section id="edu" style="background-color: #000000; position: relative;">
         <div>
             <h2><i class="fas fa-graduation-cap"></i> Education</h2>
             <div class="education" style="position: relative; text-align: center;">
@@ -492,7 +471,7 @@
 
     <!-- Publication Section -->
     <div class="section-divider"></div>
-    <section id="publication">
+    <section id="publication" style="background-color: #000000; position: relative;">
         <div>
             <h2><i class="fas fa-book"></i> Publication</h2>
             <div class="publication">
@@ -515,7 +494,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" style="background-color: #000000; position: relative;">
         <div class="contact-icons">
             <h2><i class="fas fa-envelope"></i> Contact</h2>
             <p>
