@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roger Wang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --text: #111;
+            --text-secondary: #555;
+            --text-muted: #999;
+            --rule: #ddd;
+            --font-display: 'Cormorant Garamond', 'Georgia', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --max-width: 820px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--text); }
+
+        /* ── Nav ── */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 1000;
+            background: rgba(250,249,247,0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover { color: var(--text); }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-name {
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: 7rem;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+        }
+
+        .hero-rule {
+            width: 60px;
+            height: 1px;
+            background: var(--text);
+            margin-bottom: 2rem;
+        }
+
+        .hero-titles {
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 2;
+        }
+
+        .hero-quote {
+            max-width: 520px;
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .hero-links a {
+            color: var(--text-muted);
+            font-size: 1rem;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .hero-links a:hover { color: var(--text); }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 3rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            animation: drift 2s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
+
+        /* ── Photo strip ── */
+        .photo-strip {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+        }
+
+        .photo-strip img {
+            width: 100%;
+            aspect-ratio: 16 / 7;
+            object-fit: cover;
+            object-position: center 20%;
+            filter: grayscale(30%);
+            transition: filter 0.6s;
+        }
+
+        .photo-strip img:hover { filter: grayscale(0%); }
+
+        /* ── Skills strip ── */
+        .skills-strip {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+            text-align: center;
+        }
+
+        .skills-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .skills-list {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 2;
+            letter-spacing: 0.02em;
+        }
+
+        /* ── Sections ── */
+        section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .section-rule {
+            height: 1px;
+            background: var(--rule);
+            margin: 0 auto 5rem;
+            max-width: var(--max-width);
+        }
+
+        /* ── Entry (experience / education / publication) ── */
+        .entry {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .entry:last-child { border-bottom: 1px solid var(--rule); }
+
+        .entry-meta {
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            line-height: 1.8;
+            padding-top: 0.2rem;
+        }
+
+        .entry-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.35rem;
+            line-height: 1.3;
+        }
+
+        .entry-title a {
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .entry-title a:hover { border-bottom-color: var(--text); }
+
+        .entry-subtitle {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .entry-body {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+        }
+
+        .entry-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .entry-body ul li {
+            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+
+        .entry-body ul li::before {
+            content: '\2014';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .entry-body ul ul {
+            margin-top: 0.4rem;
+            margin-left: 0.5rem;
+        }
+
+        .entry-body ul ul li::before {
+            content: '\2013';
+        }
+
+        /* ── Education specifics ── */
+        .edu-logo {
+            margin-top: 1rem;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .edu-logo:hover { opacity: 1; }
+
+        .edu-honors {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 2;
+        }
+
+        /* ── Contact ── */
+        .contact-section {
+            text-align: center;
+            padding: 5rem 2rem 6rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .contact-links a {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover { color: var(--text); }
+
+        /* ── Back to top ── */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem; right: 2rem;
+            width: 36px; height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transform: scale(0);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .back-to-top a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .back-to-top:hover a { color: var(--text); }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--rule);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ── Scroll animations ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .hero-name { font-size: 3.5rem; }
+            .hero-title { font-size: 1.1rem; }
+            .section-title { font-size: 2.2rem; }
+            .entry {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .entry-meta { padding-top: 0; }
+            nav ul { gap: 1.5rem; }
+            nav ul li a { font-size: 0.6rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-name { font-size: 2.5rem; }
+            nav ul { gap: 0.8rem; }
+            nav ul li a { font-size: 0.55rem; letter-spacing: 0.12em; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Experience</a></li>
+                <li><a href="#edu">Education</a></li>
+                <li><a href="#publication">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="about">
+        <div class="hero-name reveal">Roger Wang</div>
+        <div class="hero-rule"></div>
+        <div class="hero-titles reveal">
+            <div class="hero-title">Senior Data Scientist at SeatGeek</div>
+            <div class="hero-title">Senior AI Engineer at Ainnocence</div>
+        </div>
+        <p class="hero-quote reveal">
+            I believe being genuine and nurturing, along with a professional driven attitude,
+            is an essential combination for people in the field of data science.
+        </p>
+        <div class="hero-links reveal">
+            <a href="https://www.linkedin.com/in/roger-zirui-wang" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/rogerzrwang" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://rogerzrwang.github.io/photography_portofolio/" aria-label="Photography"><i class="fas fa-camera"></i></a>
+        </div>
+        <div class="hero-scroll">Scroll</div>
+    </section>
+
+    <!-- Photo -->
+    <div class="photo-strip reveal">
+        <img src="static/ProfilePhoto.JPG" alt="Roger Wang">
+    </div>
+
+    <!-- Skills -->
+    <div class="skills-strip reveal">
+        <div class="skills-label">Expertise</div>
+        <div class="skills-list">
+            Data Science &ensp;&middot;&ensp; Machine Learning &ensp;&middot;&ensp; Deep Learning &ensp;&middot;&ensp; Gen AI (LLM) &ensp;&middot;&ensp; Mathematics &ensp;&middot;&ensp; Statistics
+        </div>
+    </div>
+    <div class="skills-strip reveal" style="padding-top:0">
+        <div class="skills-label">Tools</div>
+        <div class="skills-list">
+            Python &ensp;&middot;&ensp; SQL &ensp;&middot;&ensp; Databricks &ensp;&middot;&ensp; Snowflake &ensp;&middot;&ensp; Redshift &ensp;&middot;&ensp; Looker &ensp;&middot;&ensp; Tableau &ensp;&middot;&ensp; AWS &ensp;&middot;&ensp; Git
+        </div>
+    </div>
+
+    <div class="section-rule"></div>
+
+    <!-- Experience -->
+    <section id="work">
+        <div class="section-label reveal">Work</div>
+        <h2 class="section-title reveal">Experience</h2>
+
+        <div class="entry reveal">
+            <div class="entry-meta">Oct 2025 &ndash; Present<br>Remote (Los Angeles)</div>
+            <div>
+                <div class="entry-title">Senior Data Scientist @ <a href="https://seatgeek.com">SeatGeek, Inc.</a></div>
+                <div class="entry-body">
+                    <ul>
+                        <li>Led the design and implementation of SeatGeek's event recommendation system, leveraging artist similarity metrics and user behavioral data to drive personalized recommendations</li>
+                        <li>Collaborated closely with the Product Analytics team, applying regression analysis and A/B testing to identify and validate opportunities for optimizing UI/UX</li>
+                        <li>Refined and maintained predictive models to forecast ticket demand and pricing trends, enabling data-driven business decisions and revenue optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry reveal">
+            <div class="entry-meta">Oct 2023 &ndash; Present<br>Remote</div>
+            <div>
+                <div class="entry-title">Senior AI Engineer @ <a href="https://www.ainnocence.com/">Ainnocence</a></div>
+                <div class="entry-body">
+                    <ul>
+                        <li>Led the development and refinement of advanced deep learning models, including LSTM, Transformers, and GNN, significantly boosting AI capabilities and application performance</li>
+                        <li>Implemented AI Strategies and integrated cutting-edge AI technologies, deploying scalable and robust AI solutions</li>
+                        <li>Optimized AI Platform and managed platform maintenance, ensuring system reliability and efficiency</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry reveal">
+            <div class="entry-meta">Jan 2022 &ndash; Oct 2025<br>Los Angeles, CA</div>
+            <div>
+                <div class="entry-title">Senior Data Scientist @ <a href="https://www.axs.com">AXS</a></div>
+                <div class="entry-body">
+                    <ul>
+                        <li>Owned and led the Dynamic Pricing project from scratch, utilized by both music and sports clients
+                            <ul>
+                                <li>Built a stack model (supervised ML and mathematical projection) to predict different events' demands</li>
+                                <li>Developed a price optimization model to find the best price for each seat for maximum potential revenues</li>
+                                <li>Made approximately 750K price recommendations for ~250 events in the US daily, generating 3M additional revenues in 2023</li>
+                            </ul>
+                        </li>
+                        <li>Created multiple AI-based chatbots for internal search, client service, and call center
+                            <ul>
+                                <li>Improved work efficiency for cross-team projects and helped clients find better solutions</li>
+                            </ul>
+                        </li>
+                        <li>Refined the Broker Detection Model and helped the team create event recommendations for email marketing</li>
+                        <li>Assisted in building data pipelines between AXS database and third-party vendors for daily automated data ingestion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry reveal">
+            <div class="entry-meta">Feb 2020 &ndash; Jan 2022<br>Los Angeles, CA</div>
+            <div>
+                <div class="entry-title">Data Scientist @ <a href="https://www.avianaglobal.com">Aviana Global Technologies</a></div>
+                <div class="entry-body">
+                    <ul>
+                        <li>Participated in the design, development, implementation, and ongoing maintenance of NEMESIS, a new generation DS tool</li>
+                        <li>Worked in support of the consulting team building ML solutions such as churn prediction and segmentation analysis</li>
+                        <li>Built connections between Nemesis engine and different SQL servers such as IBM DB2 and Microsoft SQL server</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry reveal">
+            <div class="entry-meta">Jul 2018 &ndash; May 2019<br>Birmingham, AL</div>
+            <div>
+                <div class="entry-title">Research Fellow @ <a href="https://www.bsc.edu">Birmingham-Southern College</a></div>
+                <div class="entry-body">
+                    <ul>
+                        <li>Built a tactile input modality called CodeBox64 utilizing Python, Raspberry Pi, and 3D-print with Dr. Amber Wagner</li>
+                        <li>Offered visually impaired students in K-12 an access to interact more easily with Scratch, a block programming language</li>
+                        <li>Won 2nd Place at 2019 ACM SIGCSE Student Research Competition Undergraduate Category</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry reveal">
+            <div class="entry-meta">Jul &ndash; Aug 2018<br>Chengdu, China</div>
+            <div>
+                <div class="entry-title">Data Analyst Intern @ Chinese Petroleum Engineering &amp; Construction Southwest Co.</div>
+                <div class="entry-body">
+                    <ul>
+                        <li>Cleaned data using Python and assisted in establishing a Directory Search system</li>
+                        <li>Created a database in MS SQL Server containing all employee info for the search system</li>
+                        <li>Managed and maintained employee data using SQL in MS Management Studio</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-rule"></div>
+
+    <!-- Education -->
+    <section id="edu">
+        <div class="section-label reveal">Background</div>
+        <h2 class="section-title reveal">Education</h2>
+
+        <div class="entry reveal">
+            <div class="entry-meta">Aug 2019 &ndash; May 2021<br>Los Angeles, CA</div>
+            <div>
+                <div class="entry-title"><a href="https://www.usc.edu">University of Southern California</a></div>
+                <div class="entry-subtitle">Master of Science in Analytics</div>
+                <div class="edu-honors">Dean's List</div>
+                <img src="static/USC_logo.png" class="edu-logo" style="width:100px" alt="USC">
+            </div>
+        </div>
+
+        <div class="entry reveal">
+            <div class="entry-meta">Aug 2015 &ndash; May 2019<br>Birmingham, AL</div>
+            <div>
+                <div class="entry-title"><a href="https://www.bsc.edu">Birmingham-Southern College</a></div>
+                <div class="entry-subtitle">Bachelor of Science in Mathematics</div>
+                <div class="edu-honors">
+                    Summa Cum Laude (Valedictorian)<br>
+                    Robert Hewlin Jackson Meritorious Scholarship Award<br>
+                    Mathematics Faculty Outstanding Senior Award<br>
+                    Davis Scholarship in Mathematics<br>
+                    Dean's List
+                </div>
+                <img src="static/BSC_logo.png" class="edu-logo" style="width:70px" alt="BSC">
+            </div>
+        </div>
+    </section>
+
+    <div class="section-rule"></div>
+
+    <!-- Publications -->
+    <section id="publication">
+        <div class="section-label reveal">Research</div>
+        <h2 class="section-title reveal">Publications</h2>
+
+        <div class="entry reveal">
+            <div class="entry-meta">ACM<br>Apr 18, 2019</div>
+            <div>
+                <div class="entry-title"><a href="https://dl.acm.org/doi/10.1145/3299815.3314464">Evaluating a Tactile Approach to Programming Scratch</a></div>
+                <div class="entry-body">
+                    <p>This paper describes an innovative peripheral device that can help students with visual impairments access Scratch by simply remembering six buttons and guided by auditory cues. A user study was conducted to test CodeBox64's usability and efficiency, showing that it functioned properly and efficiently.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry reveal">
+            <div class="entry-meta">ACM<br>Feb 20, 2019</div>
+            <div>
+                <div class="entry-title"><a href="https://dl.acm.org/doi/10.1145/3287324.3293707">Using Touch and Sound to Program Scratch</a></div>
+                <div class="entry-body">
+                    <p>This research invented a tactile input modality which can help visually impaired students access Scratch more easily using Raspberry Pi and Python. The results showed that CodeBox64 functioned properly and was able to provide access to Scratch for students with visual impairments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-rule"></div>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="section-label reveal">Get in Touch</div>
+        <h2 class="section-title reveal" style="margin-bottom:0">Contact</h2>
+        <div class="contact-links reveal">
+            <a href="https://www.linkedin.com/in/roger-zirui-wang" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://dl.acm.org/profile/99659351519" aria-label="ACM"><i class="fas fa-user"></i></a>
+            <a href="https://github.com/rogerzrwang" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/rogerzrwang/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://rogerzrwang.github.io/photography_portofolio/" aria-label="Photography"><i class="fas fa-camera"></i></a>
+        </div>
+    </section>
+
+    <!-- Back to Top -->
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><i class="fas fa-arrow-up"></i></a>
+    </div>
+
+    <!-- Footer -->
+    <footer>&copy; 2025 Roger Wang</footer>
+
+    <script>
+        // Back to top
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.transform = window.pageYOffset > 400 ? 'scale(1)' : 'scale(0)';
+        });
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Reveal on scroll
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

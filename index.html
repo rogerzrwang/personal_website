@@ -1,570 +1,579 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Roger Wang</title>
-        <style>
-            /* General styles */
-            body {
-                font-family: Arial, sans-serif;
-                line-height: 1.6;
-                margin: 0;
-                padding: 0;
-                background-color: #111;
-                color: #fff;
-            }
-    
-            /* Header styles */
-            header {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                background-color: #000000;
-                color: #fff;
-                text-align: center;
-                padding: 0.5rem;
-                z-index: 1000;
-            }
-    
-            /* Navigation styles */
-            nav ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-            }
-    
-            nav li {
-                display: inline-block;
-                margin: 0 10px;
-            }
-    
-            nav li a {
-                color: #fff;
-                text-decoration: none;
-                font-size: 1rem;
-            }
-    
-            nav ul li a {
-                color: #fff;
-                text-decoration: none;
-                font-size: 1rem;
-                transition: color 0.3s;
-            }
-    
-            nav ul li a:hover {
-                color: #83bbe6;
-            }
-    
-            /* About Section styles */
-            #about {
-                background-color: #222;
-                padding: 2rem;
-                text-align: center;
-                margin-bottom: 0;
-                z-index: 2000;
-                position: relative;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roger Wang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0b0b0b;
+            --bg-2: #111;
+            --white: #f5f5f5;
+            --gray-1: rgba(255,255,255,0.8);
+            --gray-2: rgba(255,255,255,0.45);
+            --gray-3: rgba(255,255,255,0.2);
+            --rule: rgba(255,255,255,0.08);
+            --display: 'Space Grotesk', sans-serif;
+            --body: 'Inter', -apple-system, sans-serif;
+            --col: 1000px;
+        }
 
-            #about img {
-            display: block;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--body);
+            background: var(--bg);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+
+        /* ── Nav ── */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 1000;
+            background: rgba(11,11,11,0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        nav {
+            max-width: var(--col);
             margin: 0 auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-            }
+            padding: 1rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-            /* Portfolio Section styles */
-            #publication {
-                padding: 1rem 10rem;
-                background-color: #fff;
-            }
+        .nav-name {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
 
-            #publication h2 {
-                text-align: center;
-                font-size: 1.6rem;
-                margin-bottom: 2rem;
-            }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
 
-            #publication h3 {
-                font-family: 'Helvetica', sans-serif;
-                font-size: 1.2rem;
-                margin-top: 0;
-                margin-bottom: 1rem;
-                color: #0658ab;
-            }
+        nav ul li a {
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gray-2);
+            transition: color 0.3s;
+        }
 
-            /* Contact Section styles */
-            #contact {
-                padding: 2rem;
-                text-align: center;
-            }
+        nav ul li a:hover { color: var(--white); }
 
-            #contact h2 {
-                font-size: 1.6rem;
-                margin-bottom: 2rem;
-            }
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
 
-            #contact p {
-                font-size: 1.1rem;
-            }
+        .hero-img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+        }
 
-            /* Footer styles */
-            footer {
-                background-color: #000000;
-                color: #fff;
-                text-align: center;
-                padding: 1rem;
-                font-size: 0.9rem;
-            }
+        .hero-fade {
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 50%;
+            background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+        }
 
-            /* Education section styles */
-            #edu {
-                padding: 1rem 10rem;
-                background-color: #fff;
-            }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: var(--col);
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 2.5rem 4rem;
+        }
 
-            #edu h2 {
-                text-align: center;
-                font-size: 1.6rem;
-                margin-bottom: 2rem;
-            }
+        .hero-content h1 {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 4.5rem;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: 1rem;
+        }
 
-            #edu h3 {
-                font-family: 'Helvetica', sans-serif;
-                font-size: 1.2rem;
-                margin-top: 0;
-                margin-bottom: 1rem;
-                color: #b3d8fd;
-            }
+        .hero-tagline {
+            font-size: 0.9rem;
+            color: var(--gray-1);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
 
-            #edu h4 {
-                font-family: 'Helvetica', sans-serif;
-                font-size: 1rem;
-                margin-top: 0;
-                margin-bottom: 1rem;
-                color: #b3d8fd;
-            }
+        .hero-tagline span {
+            color: var(--gray-2);
+            font-size: 0.75rem;
+        }
 
-            #edu h5 {
-                font-family: 'Georgia', serif;
-                font-size: 1rem;
-                line-height: 1.5;
-                margin: 5 10px;
-            }
+        .hero-links {
+            display: flex;
+            gap: 1.25rem;
+        }
 
-            #edu p {
-                font-family: 'Georgia', serif;
-                font-size: 1rem;
-                line-height: 1.5;
-                margin: 0 20px;
-            }
+        .hero-links a {
+            color: var(--gray-2);
+            font-size: 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-            /* Add this new style for job time */
-            .edu-time {
-                font-size: 0.9rem; /* Adjust the font size as needed */
-                color: #888; /* Adjust the color as needed */
-            }
+        .hero-links a:hover { color: var(--white); }
 
-            /* Work Experience styles */
-            #work {
-                padding: 1rem 10rem;
-                background-color: #fff;
-            }
+        /* ── Marquee skills ── */
+        .marquee-wrap {
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            padding: 0.9rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
 
-            #work h2 {
-                text-align: center;
-                font-size: 1.6rem;
-                margin-bottom: 2rem;
-            }
+        .marquee {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 2rem;
+            font-family: var(--display);
+            font-weight: 500;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-2);
+            white-space: normal;
+        }
 
-            #work h3 {
-                font-family: 'Helvetica', sans-serif;
-                font-size: 1.2rem;
-                margin-top: 0;
-                margin-bottom: 1rem;
-                color: #b3d8fd;
-            }
+        /* ── Section ── */
+        .section {
+            max-width: var(--col);
+            margin: 0 auto;
+            padding: 4rem 2.5rem 2rem;
+        }
 
-            #work h4 {
-                font-family: 'Helvetica', sans-serif;
-                font-size: 1rem;
-                margin-top: 0;
-                margin-bottom: 1rem;
-                color: #b3d8fd;
-            }
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--gray-3);
+        }
 
-            #work h5 {
-                font-family: 'Georgia', serif;
-                font-size: 1rem;
-                line-height: 1.5;
-                margin: 5 10px;
-            }
+        .section-head h2 {
+            font-family: var(--display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
 
-            #work p {
-                font-family: 'Georgia', serif;
-                font-size: 1rem;
-                line-height: 1.5;
-                margin: 0 20px;
-            }
+        .section-head span {
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gray-2);
+        }
 
-            /* Add this new style for job time */
-            .job-time {
-                font-size: 0.9rem; /* Adjust the font size as needed */
-                color: #888; /* Adjust the color as needed */
-                position: relative; /* Add this line to make content stack above the background */
-                margin-bottom: 2rem; /* Add spacing between job entries */
-            }
+        /* ── Entry ── */
+        .entry {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 2rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--rule);
+        }
 
-            /* Style for the line between sections */
-            .section-divider {
-                border-top: 1px solid #000000;
-                margin: 0.5rem 0;
-            }
+        .entry-when {
+            font-size: 0.7rem;
+            color: var(--gray-2);
+            line-height: 1.7;
+            padding-top: 0.25rem;
+            letter-spacing: 0.02em;
+        }
 
-            /* Back to Top button styles */
-            .back-to-top {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                background-color: #333;
-                color: #fff;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-                transition: background-color 0.3s ease, transform 0.3s ease;
-            }
+        .entry-role {
+            font-family: var(--display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            letter-spacing: -0.02em;
+        }
 
-            .back-to-top:hover {
-                background-color: #444;
-            }
+        .entry-role a {
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
 
-            .back-to-top a {
-                color: #fff;
-                text-decoration: none;
-                font-size: 20px;
-            }
+        .entry-role a:hover { opacity: 0.6; }
 
-            .contact-icons a {
-                color: #fff;
-                font-size: 24px;
-                margin: 0 10px;
-                transition: color 0.3s;
-            }
+        .entry-desc {
+            font-size: 0.82rem;
+            color: var(--gray-1);
+            line-height: 1.75;
+        }
 
-            .contact-icons a:hover {
-                color: #b3d8fd;
-            }
+        .entry-desc ul {
+            list-style: none;
+            margin-top: 0.3rem;
+        }
 
-            /* Media Queries for Responsive Design */
-            @media screen and (max-width: 768px) 
-            {
-                /* Adjustments for smaller screens */
-                header {
-                    padding: 0.2rem;
-                }
+        .entry-desc ul li {
+            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 0.15rem;
+        }
 
-                nav li {
-                    margin: 0 3px;
-                }
+        .entry-desc ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 4px;
+            height: 1px;
+            background: var(--gray-2);
+        }
 
-                nav ul li a {
-                    font-size: 0.8rem; /* Adjust the font size as needed */
-                }
+        .entry-desc ul ul { margin-top: 0.15rem; margin-left: 0.25rem; }
 
-                /* About Section styles */
-                #about {
-                    padding: 1rem;
-                    text-align: center;
-                }
+        /* ── Education ── */
+        .edu-deg {
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--gray-1);
+        }
 
-                /* Resume Section styles */
-                #work {
-                    padding: 1rem;
-                    font-size: 12px;
-                }
+        .edu-hon {
+            font-size: 0.78rem;
+            color: var(--gray-2);
+            font-style: italic;
+            line-height: 1.7;
+        }
 
-                #work h3{
-                    padding: 1rem;
-                    font-size: 14px;
-                    margin-left: 5px;
-                    margin-right: 5px;
-                }
+        .edu-logo {
+            height: 32px;
+            margin-top: 0.6rem;
+            opacity: 0.35;
+            filter: invert(1) grayscale(1);
+            transition: opacity 0.2s;
+        }
 
-                #skill {
-                    padding: 1rem;
-                    font-size: 12px;
-                }
+        .edu-logo:hover { opacity: 0.7; }
 
-                /* Education section styles */
-                #edu {
-                    padding: 0.1rem;
-                    font-size: 14px;
-                }
+        /* ── Contact ── */
+        .contact {
+            max-width: var(--col);
+            margin: 0 auto;
+            padding: 3rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--gray-3);
+        }
 
-                #edu h2{
-                    margin-top: 55px;
-                }
+        .contact h2 {
+            font-family: var(--display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
 
-                #edu h3{
-                    margin-top: 10px;
-                    font-size: 14px;
-                    margin-left: 50px;
-                    margin-right: 50px;
-                }
+        .contact-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
 
-                #edu p{
-                    padding: 0.1rem;
-                    font-size: 12px;
-                }
+        .contact-icons a {
+            color: var(--gray-2);
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-                /* Publication section styles */
-                #publication {
-                    padding: 1rem;
-                    font-size: 12px;
-                }
+        .contact-icons a:hover { color: var(--white); }
 
-                #publication h3{
-                    padding: 0rem;
-                    font-size: 14px;
-                    margin-left: 20px;
-                    margin-right: 20px;
-                }
+        /* ── Footer ── */
+        footer {
+            max-width: var(--col);
+            margin: 0 auto;
+            text-align: center;
+            padding: 1.5rem 2.5rem;
+            border-top: 1px solid var(--rule);
+            font-size: 0.6rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gray-2);
+        }
 
-                /* Contact Section styles */
-                #contact {
-                    padding: 0.1rem;
-                }
+        /* ── Back to top ── */
+        .btt {
+            position: fixed;
+            bottom: 1.5rem; right: 1.5rem;
+            width: 32px; height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transform: scale(0);
+            transition: transform 0.25s;
+            z-index: 100;
+        }
 
-                /* Footer styles */
-                footer {
-                    font-size: 0.8rem;
-                }
-            }
+        .btt a { color: var(--gray-2); text-decoration: none; font-size: 0.8rem; }
+        .btt:hover a { color: var(--white); }
 
-            /* Change link color to a light color */
-            a {
-                color: #83bbe6; /* Change this to your desired light color */
-            }
-        </style>
-    </head>
+        /* ── Reveal ── */
+        .rv {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        .rv.v { opacity: 1; transform: translateY(0); }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .entry { grid-template-columns: 1fr; gap: 0.3rem; }
+            nav ul { gap: 1rem; }
+            nav ul li a { font-size: 0.6rem; }
+            .contact { flex-direction: column; gap: 1rem; text-align: center; }
+            .marquee { font-size: 0.7rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 2rem; }
+            nav ul { gap: 0.6rem; }
+            .nav-name { font-size: 0.8rem; }
+        }
+    </style>
+</head>
 <body>
-    <!-- Header Section -->
+
     <header>
         <nav>
+            <a href="#" class="nav-name">Roger Wang</a>
             <ul>
-                <li><a href="#about">About</a></li>
                 <li><a href="#work">Experience</a></li>
                 <li><a href="#edu">Education</a></li>
-                <li><a href="#publication">Publication</a></li>
+                <li><a href="#pub">Publications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- About Section -->
-    <section id="about" style="position: relative;" class="contact-icons">
-        <img src="static/ProfilePhoto.JPG" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
-        <div style="position: relative; padding: 2rem; text-align: center;">
-            <h2>About Me</h2>
-            <p style="font-weight: bold; font-size: 18px;"> Senior Data Scientist at SeatGeek </p><p style="font-size: 14px;"> Entertainment </p>
-            <p style="font-weight: bold; font-size: 18px;"> Chief AI Engineer at Ainnocence </p><p style="font-size: 14px;"> BioTech </p>
-            <a href="https://www.linkedin.com/in/roger-zirui-wang"><i class="fab fa-linkedin"></i></a><a href="https://rogerzrwang.github.io/photography_portofolio/"><i class="fas fa-camera"></i></a>
-            <p>
-                I believe being genuine and nurturing, along with a professional driven attitude, is an essential combination for people in the field of data science.
-            </p>
-            <hr>
-            <P><strong><center>Data Science | Machine Learning | Deep Learning | Gen AI (LLM) | Mathematics | Statistics</center></strong></p>
-            <P><center>Python | SQL | Databricks | Snowflake | Redshift | Looker | Tableau | AWS | Git</center></p>
-        </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section id="work" style="background-color: #000000; position: relative;">
-        <div style="position: relative; z-index: 1;">
-            <h2><i class="fas fa-briefcase"></i> Experience</h2>
-            <div class="job">
-                <h3>Senior Data Scientist @ <a href="https://seatgeek.com">SeatGeek, Inc.</a>
-                    <span class="job-time"> | Oct 2025 - Present, Remote (Los Angeles)</span>
-                </h3>
-                <ul>
-                    <li>Led the design and implementation of SeatGeek’s event recommendation system, leveraging artist similarity metrics and user behavioral data to drive personalized recommendations</li>
-                    <li>Collaborated closely with the Product Analytics team, applying regression analysis and A/B testing to identify and validate opportunities for optimizing UI/UX across the website and mobile app</li>
-                    <li>Refined and maintained predictive models to forecast ticket demand and pricing trends, enabling data-driven business decisions and revenue optimization</li>
-                </ul>
+    <!-- Hero -->
+    <section class="hero" id="about">
+        <img src="static/ProfilePhoto.JPG" class="hero-img" alt="Roger Wang">
+        <div class="hero-fade"></div>
+        <div class="hero-content">
+            <h1>Roger<br>Wang</h1>
+            <div class="hero-tagline">
+                Senior Data Scientist at SeatGeek <span>/ Entertainment</span><br>
+                Senior AI Engineer at Ainnocence <span>/ BioTech</span>
             </div>
-            <div class="job">
-                <h3>Senior Data Scientist @ <a href="https://www.axs.com">AXS</a>
-                    <span class="job-time"> | Jan 2022 - Present, Los Angeles, CA</span>
-                </h3>
-                <ul>
-                    <li>Owned and led the Dynamic Pricing project from scratch at AXS, utilized by both music and sports clients
-                        <ul>
-                            <li>Built a stack model (supervised ML and mathematical projection) to predict different events' demands</li>
-                            <li>Developed a price optimization model to find the best price for each seat for maximum potential revenues</li>
-                            <li>Made approximately 750K price recommendations for ~250 events in the US daily, generating 3M additional revenues in 2023 so far</li>
-                        </ul>
-                    </li>
-                    <li>Created multiple AI-based chatbots for 1) company internal information search, 2) client service team, and 3) call center
-                        <ul>
-                            <li>Improved work efficiency for cross-team projects and helped clients and customer service team find better solutions</li>
-                        </ul>
-                    </li>
-                    <li>Refined the Broker Detection Model (classification) and helped the team create event recommendations for email marketing</li>
-                    <li>Assisted in building data pipelines between AXS database and third-party vendors for daily automated data ingestion</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>Chief AI Engineer @ <a href="https://www.ainnocence.com/">Ainnocence</a>
-                    <span class="job-time"> | Oct 2023 - Present, Remote</span>
-                </h3>
-                <ul>
-                    <li>Led the development and refinement of advanced deep learning models, including LSTM, Transformers, and GNN, significantly boosting the company's AI capabilities and application performance.</li>
-                    <li>Implemented AI Strategies and integrated cutting-edge AI technologies, deploying scalable and robust AI solutions that met evolving business needs and propelled innovation in AI applications.</li>
-                    <li>Optimized AI Platform and managed platform maintenance, ensuring system reliability and efficiency.</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>Data Scientist @ <a href="https://www.avianaglobal.com">Aviana Global Technologies</a>
-                    <span class="job-time"> | Feb 2020 - Jan 2022, Los Angeles, CA</span>
-                </h3>
-                <ul>
-                    <li>Participated in the design, development, implementation, and ongoing maintenance of NEMESIS, a new generation DS tool</li>
-                    <li>Worked in support of the consulting team building ML solutions such as churn prediction and segmentation analysis</li>
-                    <li>Built connections between Nemesis engine and different SQL servers such as IBM DB2 and Microsoft SQL server, which
-                        helped the company secure a new contract with a client</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>Research Fellow @ <a href="https://www.bsc.edu">Birmingham-Southern College</a>
-                    <span class="job-time"> | Jul 2018 - May 2019, Birmingham, AL</span>
-                </h3>
-                <ul>
-                    <li>Built a tactile input modality called CodeBox64 utilizing Python, raspberry pi, and 3D-print with Dr. Amber Wagner</li>
-                    <li>Offered visually impaired students in K-12 an access to interact more easily with Scratch, a block programming language</li>
-                    <li>Won 2nd Place at 2019 ACM SIGCSE Student Research Competition Undergraduate Category with two publications</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>
-                    Data Analyst Intern @ Chinese Petroleum Engineering & Construction Southwest Co.
-                    <span class="job-time"> | Jul 2018 - Aug 2018, Chengdu, China</span>
-                </h3>
-                <ul>
-                    <li>Cleaned data using Python and assisted the Network Information Department in establishing a Directory Search system</li>
-                    <li>Created a database in MS SQL Server with other interns containing all employee info, which was used in the search system</li>
-                    <li>Managed and maintained employee’s data using SQL in MS Management Studio such as altering, adding and deleting</li>
-                </ul>
-            </div>
-            <!-- Add more job entries as needed -->
-        </div>
-    </section>
-
-    <section id="edu" style="background-color: #000000; position: relative;">
-        <div>
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-            <div class="education" style="position: relative; text-align: center;">
-                <h3><a href="https://www.usc.edu">University of Southern California</a>
-                    <span class="job-time"> | Aug 2019 - May 2021, Los Angeles, CA</span>
-                </h3>
-                <strong>Master of Science in Analytics</strong>
-                <i><p>Dean's List</p></i>
-                <img src="static/USC_logo.png" style="width: 20%; height: 20%; margin-top: 20px; margin-bottom: 20px;">
-            </div>
-            <div class="education" style="position: relative; text-align: center;">
-                <h3><a href="https://www.bsc.edu">Birmingham-Southern College</a>
-                    <span class="job-time"> | Aug 2015 - May 2019, Birmingham, AL</span>
-                </h3>
-                <strong>Bachelor of Science in Mathematics</strong>
-                    <i><p>Summa Cum Laude (Valedictorian)</p>
-                    <p>Robert Hewlin Jackson Meritorious Scholarship Award</p>
-                    <p>Mathematics Faculty Outstanding Senior Award</p>
-                    <p>Davis Scholarship in Mathematics</p>
-                    <p>Dean's List</p></i>
-                    <img src="static/BSC_logo.png" style="width: 12%; height: 12%; margin-top: 25px;">
+            <div class="hero-links">
+                <a href="https://www.linkedin.com/in/roger-zirui-wang" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/rogerzrwang" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/rogerzrwang/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://rogerzrwang.github.io/photography_portofolio/" aria-label="Photography"><i class="fas fa-camera"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Publication Section -->
-    <div class="section-divider"></div>
-    <section id="publication" style="background-color: #000000; position: relative;">
-        <div>
-            <h2><i class="fas fa-book"></i> Publication</h2>
-            <div class="publication">
-                <h3><a href="https://dl.acm.org/doi/10.1145/3299815.3314464">Evaluating a Tactile Approach to Programming Scratch</a>
-                    <span class="job-time"> | ACM New York, NY, USA · Apr 18, 2019</span>
-                </h3>
-                <ul>
-                    <li>Computer Science in K-12 is continuing to become more prevalent. Because learning syntax and debugging can be burdensome, many teachers in K-12 use block languages to teach their students. Block languages, such as Scratch, allow students to focus on simple programming concepts and logic, and therefore, make computer programming easier and more approachable to students. However, block languages are not accessible to students with visual impairments because of block-environments' high dependence on visual aspects. This paper describes an innovative peripheral device that can help students with visual impairments access Scratch by simply remembering six buttons and guided by auditory cues generated by the computer. In order to test CodeBox64's usability and efficiency, a simple user study was conducted. Based on the data collected from the user study, CodeBox64 functioned properly and efficiently.</li>
-                </ul>
-            </div>
-            <div class="publication">
-                <h3><a href="https://dl.acm.org/doi/10.1145/3287324.3293707">Using Touch and Sound to Program Scratch</a>
-                    <span class="job-time"> | ACM New York, NY, USA · Feb 20, 2019</span>
-                </h3>
-                <ul>
-                    <li>This research invented a tactile input modality which can help visually impaired students access Scratch, a block programming language, more easily using Raspberry Pi and Python. In order to test the usability and efficiency of CodeBox64, an experiment was designed and conducted. The results showed that CodeBox64 functioned properly and was able to provide an access to Scratch for students with visual impairments.</li>
-                </ul>
-            </div>
+    <!-- Skills marquee -->
+    <div class="marquee-wrap">
+        <div class="marquee">
+            <span>Data Science</span><span>Machine Learning</span><span>Deep Learning</span><span>Gen AI</span><span>Mathematics</span><span>Statistics</span><span>Python</span><span>SQL</span><span>Databricks</span><span>Snowflake</span><span>AWS</span><span>Looker</span><span>Tableau</span><span>Git</span>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" style="background-color: #000000; position: relative;">
-        <div class="contact-icons">
-            <h2><i class="fas fa-envelope"></i> Contact</h2>
-            <p>
-                <center>
-                    <a href="https://www.linkedin.com/in/roger-zirui-wang"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://dl.acm.org/profile/99659351519"><i class="fas fa-user"></i></a>
-                    <a href="https://github.com/rogerzrwang"><i class="fab fa-github"></i></a>
-                    <a href="https://www.instagram.com/rogerzrwang/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://rogerzrwang.github.io/photography_portofolio/"><i class="fas fa-camera"></i></a>
-                </center>
-            </p>
-        </div>
-    </section>
-
-    <!-- Back-to-Top Button -->
-    <div id="back-to-top" class="back-to-top">
-        <a href="#header"><i class="fas fa-arrow-up"></i></a>
     </div>
-    <!-- Add the Font Awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <!-- JavaScript code for Back to Top button behavior -->
+    <!-- Experience -->
+    <div class="section" id="work">
+        <div class="section-head rv">
+            <h2>Experience</h2>
+        </div>
+
+        <div class="entry rv">
+            <div class="entry-when">Oct 2025 &ndash; Present<br>Remote (LA)</div>
+            <div>
+                <div class="entry-role">Senior Data Scientist @ <a href="https://seatgeek.com">SeatGeek</a></div>
+                <div class="entry-desc">
+                    <ul>
+                        <li>Led design of event recommendation system using artist similarity and user behavioral data</li>
+                        <li>Applied regression analysis and A/B testing with Product Analytics to optimize UI/UX</li>
+                        <li>Maintained predictive models for ticket demand and pricing trends</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry rv">
+            <div class="entry-when">Oct 2023 &ndash; Present<br>Remote</div>
+            <div>
+                <div class="entry-role">Senior AI Engineer @ <a href="https://www.ainnocence.com/">Ainnocence</a></div>
+                <div class="entry-desc">
+                    <ul>
+                        <li>Led development of deep learning models (LSTM, Transformers, GNN) boosting AI performance</li>
+                        <li>Deployed scalable AI solutions for evolving business needs</li>
+                        <li>Optimized and maintained AI platform for reliability and efficiency</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry rv">
+            <div class="entry-when">Jan 2022 &ndash; Oct 2025<br>Los Angeles</div>
+            <div>
+                <div class="entry-role">Senior Data Scientist @ <a href="https://www.axs.com">AXS</a></div>
+                <div class="entry-desc">
+                    <ul>
+                        <li>Owned Dynamic Pricing end-to-end: demand prediction + price optimization, generating $3M additional revenue</li>
+                        <li>Built AI chatbots for internal search, client service, and call center</li>
+                        <li>Refined Broker Detection Model; built automated data pipelines with third-party vendors</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry rv">
+            <div class="entry-when">Feb 2020 &ndash; Jan 2022<br>Los Angeles</div>
+            <div>
+                <div class="entry-role">Data Scientist @ <a href="https://www.avianaglobal.com">Aviana Global</a></div>
+                <div class="entry-desc">
+                    <ul>
+                        <li>Designed and maintained NEMESIS, a next-gen DS tool; built ML solutions for churn and segmentation</li>
+                        <li>Connected engine to IBM DB2 and MS SQL Server, helping secure a new client contract</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry rv">
+            <div class="entry-when">Jul 2018 &ndash; May 2019<br>Birmingham, AL</div>
+            <div>
+                <div class="entry-role">Research Fellow @ <a href="https://www.bsc.edu">Birmingham-Southern College</a></div>
+                <div class="entry-desc">
+                    <ul>
+                        <li>Built CodeBox64 &mdash; tactile device for visually impaired students to access Scratch via Python &amp; Raspberry Pi</li>
+                        <li>2nd Place, 2019 ACM SIGCSE Student Research Competition (Undergraduate)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section" id="edu">
+        <div class="section-head rv">
+            <h2>Education</h2>
+        </div>
+
+        <div class="entry rv">
+            <div class="entry-when">2019 &ndash; 2021<br>Los Angeles</div>
+            <div>
+                <div class="entry-role"><a href="https://www.usc.edu">University of Southern California</a></div>
+                <div class="edu-deg">M.S. Analytics</div>
+                <div class="edu-hon">Dean's List</div>
+                <img src="static/USC_logo.png" class="edu-logo" alt="USC">
+            </div>
+        </div>
+
+        <div class="entry rv">
+            <div class="entry-when">2015 &ndash; 2019<br>Birmingham, AL</div>
+            <div>
+                <div class="entry-role"><a href="https://www.bsc.edu">Birmingham-Southern College</a></div>
+                <div class="edu-deg">B.S. Mathematics</div>
+                <div class="edu-hon">
+                    Summa Cum Laude (Valedictorian) &middot; Hewlin Jackson Scholarship &middot;
+                    Math Faculty Outstanding Senior &middot; Davis Scholarship &middot; Dean's List
+                </div>
+                <img src="static/BSC_logo.png" class="edu-logo" style="height:26px" alt="BSC">
+            </div>
+        </div>
+    </div>
+
+    <!-- Publications -->
+    <div class="section" id="pub">
+        <div class="section-head rv">
+            <h2>Publications</h2>
+            <span>ACM</span>
+        </div>
+
+        <div class="entry rv">
+            <div class="entry-when">Apr 2019</div>
+            <div>
+                <div class="entry-role"><a href="https://dl.acm.org/doi/10.1145/3299815.3314464">Evaluating a Tactile Approach to Programming Scratch</a></div>
+                <div class="entry-desc">
+                    <p>CodeBox64: a peripheral enabling visually impaired students to access Scratch via six buttons and auditory cues. User study confirmed usability and efficiency.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry rv">
+            <div class="entry-when">Feb 2019</div>
+            <div>
+                <div class="entry-role"><a href="https://dl.acm.org/doi/10.1145/3287324.3293707">Using Touch and Sound to Program Scratch</a></div>
+                <div class="entry-desc">
+                    <p>Tactile input modality using Raspberry Pi and Python for accessible block-based programming. Experiments confirmed proper function and accessibility.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact rv" id="contact">
+        <h2>Get in touch</h2>
+        <div class="contact-icons">
+            <a href="https://www.linkedin.com/in/roger-zirui-wang" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://dl.acm.org/profile/99659351519" aria-label="ACM"><i class="fas fa-user"></i></a>
+            <a href="https://github.com/rogerzrwang" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/rogerzrwang/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://rogerzrwang.github.io/photography_portofolio/" aria-label="Photography"><i class="fas fa-camera"></i></a>
+        </div>
+    </div>
+
+    <footer>&copy; 2025 Roger Wang</footer>
+
+    <div id="btt" class="btt"><a href="#"><i class="fas fa-arrow-up"></i></a></div>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const backToTopButton = document.getElementById("back-to-top");
-            
-            // Show/hide the button based on the scroll position
-            window.addEventListener("scroll", function () {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.style.transform = "scale(1)";
-                } else {
-                    backToTopButton.style.transform = "scale(0)";
-                }
-            });
-            
-            // Scroll to the top when the button is clicked
-            backToTopButton.addEventListener("click", function (event) {
-                event.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-            });
+        const b = document.getElementById('btt');
+        window.addEventListener('scroll', () => {
+            b.style.transform = window.pageYOffset > 300 ? 'scale(1)' : 'scale(0)';
         });
-    </script>
+        b.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2023 Roger Wang. All rights reserved.</p>
-    </footer>
+        const o = new IntersectionObserver(es => {
+            es.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.rv').forEach(el => o.observe(el));
+    </script>
 </body>
 </html>
